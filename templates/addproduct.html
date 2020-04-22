@@ -1,0 +1,64 @@
+{% extends "base.html"%}
+{% load static %}
+{% load widget_tweaks %}
+{%block content%}
+
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+          
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                           
+                           <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header">{{ title }} Products</div>
+                                    <div class="card-body card-block">
+                                        <form action="." method="post" class=""> {% csrf_token %} 
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-user"></i>
+                                                    </div>                                                    
+                                                    {% render_field form.product_name placeholder="Product Name" class="form-control" %}
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i  class="fa fa-sort-amount-asc"></i>
+                                                    </div>
+                                                    
+                                                    {% render_field form.product_size placeholder="Quantity" class="form-control" %}
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fas fa-dollar-sign"></i>
+                                                    </div>
+                                                      {% render_field form.product_price placeholder="Price" class="form-control"%}
+
+                                                </div>
+                                            </div>
+                                            <div class="form-actions form-group">
+                                                <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {%endblock%}

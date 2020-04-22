@@ -1,0 +1,73 @@
+{% extends "base.html"%}
+{% load static %}
+{%block content%}
+
+
+
+
+
+        <!-- HEADER MOBILE-->
+      
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+           
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+      
+                        <div class="row">
+                            <div class="col-lg-13">
+                                <h2 class="title-1 m-b-25">Order</h2>
+                                <div class="table-responsive table--no-card m-b-40">
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+                                                
+                                                <th>order ID</th>
+                                                <th>Product</th>
+                                                <th>Size</th>
+                                                <th>Amount</th>
+                                                <th>Total</th>
+                                               
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          
+                                            {% for ord in object %}
+                                                
+                                            <tr>
+                                                <td>{{ ord.order_number }}</td> 
+                                                <td>{{ ord.order_type }}</td>
+                                                <td>{{ ord.order_size }}</td>
+                                                <td>{{ ord.order_quantity }}</td>
+                                                <td>{{ total.order_total }}</td>
+                                            </tr>
+                                        
+                                            
+                                        </tbody>
+                                            {% if ord.status == 0%}
+                                            
+                                            {%else %}
+                                             <a href="{% url 'orders-update' id=ord.order_number %}"><button type="submit" class="btn btn-success btn-sm">Finished order</button></a>
+                                            {% endif %}
+                                            {% endfor %}
+                                    </table>
+                                </div>
+                            </div>
+                           
+                             
+                                                
+                        </div>
+                 
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+
+    {%endblock%}

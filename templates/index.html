@@ -1,0 +1,63 @@
+{% extends "base.html"%}
+{% load static %}
+{%block content%}
+
+
+
+
+
+        <!-- HEADER MOBILE-->
+      
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+           
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+      
+                        <div class="row">
+                            <div class="col-lg-14">
+                                <h2 class="title-1 m-b-25">Orders </h2>
+                                <div class="table-responsive table--no-card m-b-40">
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+                                                <th>Phone Number</th>
+                                                <th>order ID</th>
+                                                <th>date</th>
+                                                <th>Status</th>
+                                               
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for obj in order %}
+                                            <tr>
+                                                <td>{{ obj.user_id }}</td> 
+                                                <td>{{ obj.order_number }}</td>
+                                                <td>{{ obj.order_date }}</td>
+                                                <td class="text-right">
+                                                   <a href="{% url 'orders-detail' id=obj.order_number %}">
+                                                   <span style="color: #ff4500">Pending</span>
+                                                   </a>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                       
+                        </div>
+                 
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+
+    {%endblock%}
